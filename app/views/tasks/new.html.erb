@@ -1,11 +1,23 @@
 <h1>Add a task</h1>
 
-<%= form_for @task do |f| %>
-  <p>
+<%= form_with model: @task do |f| %>
+  <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
-  </p>
-  <p>
+    <% @task.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description%>
+    <% @task.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
     <%= f.submit %>
-  </p>
+  </div>
 <% end %>
