@@ -31,8 +31,15 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to @task
     else
-      render :edit, status: :umprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+
+    redirect_to @task, status: :see_other
   end
 
   private
