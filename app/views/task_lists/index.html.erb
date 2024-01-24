@@ -1,0 +1,12 @@
+<h1>Taskbuckets</h1>
+<h2>Your lists</h2>
+
+<% @task_lists.each do |list| %>
+<h3><% list.name %></h3>
+<ul>
+  <% list.each do |task| %>
+    <li><%= task.title %></li>
+  <% end %>
+</ul>
+  
+<% end %>
